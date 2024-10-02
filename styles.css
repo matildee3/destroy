@@ -1,0 +1,53 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: rgb(255, 255, 255);
+  cursor: none; /* Hide default mouse cursor */
+  position: relative;
+}
+
+.custom-cursor {
+  position: absolute;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  pointer-events: none;
+  z-index: 3; /* Above the canvas but below the GIF */
+}
+
+.text {
+  position: absolute;
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+  z-index: 4; /* Above the canvas but below the GIF */
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2; /* Lowest z-index */
+}
+
+#explosionGif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  display: none;
+  z-index: 1000; /* Highest z-index to be on top of everything */
+  pointer-events: none; /* Ensure GIF does not interfere with mouse events */
+}
+
+.falling-element {
+  display: inline-block; /* Ensures elements are inline for letter wrapping */
+  transition: transform 1s ease-in;
+}
+
+.letter {
+  display: inline-block; /* Ensures letters are inline for shaking */
+}
+
